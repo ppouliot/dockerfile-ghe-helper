@@ -5,4 +5,4 @@ RUN git clone -b stable https://github.com/github/backup-utils
 RUN cp /backup-utils/backup.config-example /backup.config
 COPY Dockerfile /Dockerfile
 VOLUME /data
-WORKDIR /backup-utils/
+WORKDIR /backup-utils/bin
