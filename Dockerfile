@@ -3,7 +3,7 @@ MAINTAINER peter@pouliot.net
 
 ENV GHE_VERSION 0.0.5
 
-RUN apt-get update -y && apt-get install -y git wget curl rsync ssh python3 pip
+RUN apt-get update -y && apt-get install -y git wget curl rsync ssh python3 python3-pip screen expect
 RUN git clone -b stable https://github.com/github/backup-utils
 RUN ln -s /backup-utils/bin/* /usr/local/bin/
 RUN cp /backup-utils/backup.config-example /backup.config
