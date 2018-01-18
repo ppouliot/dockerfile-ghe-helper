@@ -10,9 +10,8 @@ print os.environ['GHE_USER']
 print os.environ['GHE_PASS']
 print os.environ['GHE_TOKEN']
 print os.environ['GH_TOKEN']
-print os.environ['GH_TOTP']
+print os.environ['GHE_TOTP']
 
-from ghe import get_key, set_key, unset_key
 set_key('ghe-host',(os.environ['GHE_HOST']))
 set_key('ghe-ssh-user',(os.environ['GHE_SSH_USER']))
 set_key('ghe-ssh-port',(os.environ['GHE_SSH_PORT']))
