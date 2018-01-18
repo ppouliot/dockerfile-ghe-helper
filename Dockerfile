@@ -34,4 +34,4 @@ COPY Dockerfile /Dockerfile
 COPY ghe-startup.py /ghe-startup.py
 COPY ghe-startup.sh /ghe-startup.sh
 VOLUME /data
-CMD /ghe-setup.sh
+CMD /ghe-startup.sh
