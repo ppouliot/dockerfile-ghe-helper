@@ -1,0 +1,14 @@
+version: '3'
+services:
+  ghe-helper:
+    image: ppouliot/ghe-helper:latest
+    tty: true
+#    build: .
+    environment:
+      - GHE_HOST
+      - GHE_TOKEN
+      - GHE_SSH_USER
+      - GHE_SSH_PORT
+      - GHE_USER
+      - GHE_PASS
+      - GH_TOKEN
