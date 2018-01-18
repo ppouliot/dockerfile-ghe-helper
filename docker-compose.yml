@@ -3,7 +3,7 @@ services:
   ghe-helper:
     image: ppouliot/ghe-helper:latest
     tty: true
-#    build: .
+    build: .
     environment:
       - GHE_HOST
       - GHE_TOKEN

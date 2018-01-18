@@ -9,7 +9,7 @@ USER root
 RUN \
     apt-get update -y \
     && apt-get install -y \
-    git wget curl rsync ssh \
+    git wget curl rsync ssh openssh-server vim \
     python python-dev screen \
     expect sudo ruby ruby-dev \
     rubygems gcc make byobu \
@@ -22,7 +22,7 @@ RUN \
 RUN git clone -b stable https://github.com/github/backup-utils
 RUN cp ./backup-utils/backup.config-example ./backup.config
 RUN wget https://bootstrap.pypa.io/get-pip.py && python ./get-pip.py
-RUN pip install keyrings.alt Pygments && pip install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz
+RUN pip install jenkins-job-builder jenkins-job-wrecker keyrings.alt Pygments && pip install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz
 RUN gem install bundler 
 RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount 
 RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${JENKINS_VERSION}/remoting-${JENKINS_VERSION}.jar \
@@ -31,6 +31,7 @@ RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-c
   && chmod 644 /usr/share/jenkins/slave.jar \
   && chmod 644 /usr/share/jenkins/cli.jar
 COPY Dockerfile /Dockerfile
-COPY ghe-setup.py /ghe-setup.py
+COPY ghe-startup.py /ghe-startup.py
+COPY ghe-startup.sh /ghe-startup.sh
 VOLUME /data
-CMD ghe
+CMD /ghe-setup.sh

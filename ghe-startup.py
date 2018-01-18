@@ -1,8 +1,10 @@
 #! /usr/bin/env python
 
 import os 
+import paramiko
 from ghe import get_key, set_key, unset_key
 from ghe import GHE
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 print os.environ['GHE_HOST']
 print os.environ['GHE_SSH_USER']
 print os.environ['GHE_SSH_PORT']
