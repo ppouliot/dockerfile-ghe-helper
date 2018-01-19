@@ -19,17 +19,32 @@ RUN \
     libssl-dev libyaml-dev \
     procps zlib1g-dev
 
-RUN git clone -b stable https://github.com/github/backup-utils
-RUN cp ./backup-utils/backup.config-example ./backup.config
 RUN wget https://bootstrap.pypa.io/get-pip.py && python ./get-pip.py
 RUN pip install jenkins-job-builder jenkins-job-wrecker keyrings.alt Pygments && pip install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz
 RUN gem install bundler 
 RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount 
-RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${JENKINS_VERSION}/remoting-${JENKINS_VERSION}.jar \
+
+RUN useradd -d /home/jenkins -u jenkins -g jenkins -m -s /bin/bash jenkins
+RUN useradd -d /home/gh-pages -u gh-pages -g gh-pages -m -s /bin/bash gh-pages
+RUN useradd -d /home/gh-backups -u gh-backup -g gh-backup -m -s /bin/bash gh-backup
+
+RUN echo -n "*** Installing Jenkins Slave and Client ***" \
+  && curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${JENKINS_VERSION}/remoting-${JENKINS_VERSION}.jar \
   && curl --create-dirs -sSLo /usr/share/jenkins/cli.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/cli/${JENKINS_CLI_VERSION}/cli-${JENKINS_CLI_VERSION}-jar-with-dependencies.jar \
   && chmod 755 /usr/share/jenkins \
   && chmod 644 /usr/share/jenkins/slave.jar \
   && chmod 644 /usr/share/jenkins/cli.jar
+
+USER gh-pages
+RUN echo -n "*** Creating GH/GHE wiki/pages src directories ***" \
+    mkdir -p ghe.wiki ghe.pages gh.wiki gh.pages
+
+USER gh-backup
+RUN echo -n "*** Installing GitHub Backup Utils ***" \
+    git clone -b stable https://github.com/github/backup-utils \
+    cp ./backup-utils/backup.config-example ./backup.config
+
+USER root
 COPY Dockerfile /Dockerfile
 COPY ghe-startup.py /ghe-startup.py
 COPY ghe-startup.sh /ghe-startup.sh
