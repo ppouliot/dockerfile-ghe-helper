@@ -24,9 +24,9 @@ RUN pip install jenkins-job-builder jenkins-job-wrecker keyrings.alt Pygments &&
 RUN gem install bundler 
 RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount 
 
-RUN useradd -d /home/jenkins -u jenkins -g jenkins -m -s /bin/bash jenkins
-RUN useradd -d /home/gh-pages -u gh-pages -g gh-pages -m -s /bin/bash gh-pages
-RUN useradd -d /home/gh-backups -u gh-backup -g gh-backup -m -s /bin/bash gh-backup
+RUN useradd -c "Jenkins Slave Service" jenkins -d  /home/jenkins -m -s /bin/bash
+RUN useradd -c "GitHub Pages Editor" gh-pages -d  /home/gh-pages -m -s /bin/bash
+RUN useradd -c "GitHub Backup Utils" gh-backup -d  /home/gh-backup -m -s /bin/bash
 
 RUN echo -n "*** Installing Jenkins Slave and Client ***" \
   && curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${JENKINS_VERSION}/remoting-${JENKINS_VERSION}.jar \
@@ -37,12 +37,12 @@ RUN echo -n "*** Installing Jenkins Slave and Client ***" \
 
 USER gh-pages
 RUN echo -n "*** Creating GH/GHE wiki/pages src directories ***" \
-    mkdir -p ghe.wiki ghe.pages gh.wiki gh.pages
+    && mkdir -p ghe.wiki ghe.pages gh.wiki gh.pages
 
 USER gh-backup
 RUN echo -n "*** Installing GitHub Backup Utils ***" \
-    git clone -b stable https://github.com/github/backup-utils \
-    cp ./backup-utils/backup.config-example ./backup.config
+    && git clone -b stable https://github.com/github/backup-utils \
+    && cp ./backup-utils/backup.config-example ./backup.config
 
 USER root
 COPY Dockerfile /Dockerfile
