@@ -4,14 +4,21 @@ import os
 import paramiko
 from ghe import get_key, set_key, unset_key
 from ghe import GHE
-
+print '**GHE_HOST**'
 print os.environ['GHE_HOST']
+print '**GHE_SSH_USER**'
 print os.environ['GHE_SSH_USER']
+print '**GHE_SSH_PORT**'
 print os.environ['GHE_SSH_PORT']
+print '**GHE_USER**'
 print os.environ['GHE_USER']
+print '**GHE_PASS**'
 print os.environ['GHE_PASS']
+print '**GHE_TOKEN**'
 print os.environ['GHE_TOKEN']
+print '**GH_TOKEN**'
 print os.environ['GH_TOKEN']
+print '**GH_TOTP**'
 print os.environ['GHE_TOTP']
 
 set_key('ghe-host',(os.environ['GHE_HOST']))

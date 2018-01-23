@@ -35,16 +35,21 @@ RUN echo -n "*** Installing Jenkins Slave and Client ***" \
   && chmod 644 /usr/share/jenkins/slave.jar \
   && chmod 644 /usr/share/jenkins/cli.jar
 
+ENV HOME /home/gh-pages
 USER gh-pages
+WORKDIR $HOME
 RUN echo -n "*** Creating GH/GHE wiki/pages src directories ***" \
     && mkdir -p ghe.wiki ghe.pages gh.wiki gh.pages
 
+ENV HOME /home/gh-backup
 USER gh-backup
-RUN echo -n "*** Installing GitHub Backup Utils ***" \
-    && git clone -b stable https://github.com/github/backup-utils \
+WORKDIR $HOME
+RUN echo -n "*** Installing GitHub Backup Utils ***" && git clone -b stable https://github.com/github/backup-utils \
     && cp ./backup-utils/backup.config-example ./backup.config
 
 USER root
+ENV HOME /
+WORKDIR $HOME
 COPY Dockerfile /Dockerfile
 COPY ghe-startup.py /ghe-startup.py
 COPY ghe-startup.sh /ghe-startup.sh
