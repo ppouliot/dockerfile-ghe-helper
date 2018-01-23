@@ -20,7 +20,7 @@ RUN \
     procps zlib1g-dev
 
 RUN wget https://bootstrap.pypa.io/get-pip.py && python ./get-pip.py
-RUN pip install jenkins-job-builder jenkins-job-wrecker keyrings.alt Pygments && pip install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz
+RUN pip install future jenkins-job-builder jenkins-job-wrecker keyrings.alt Pygments && pip install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz
 RUN gem install bundler 
 RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount 
 
@@ -45,7 +45,9 @@ ENV HOME /home/gh-backup
 USER gh-backup
 WORKDIR $HOME
 RUN echo -n "*** Installing GitHub Backup Utils ***" && git clone -b stable https://github.com/github/backup-utils \
-    && cp ./backup-utils/backup.config-example ./backup.config
+    && cp ./backup-utils/backup.config-example ./backup.config \
+    && echo -n "*** Installing GitHub Platform Samples ***" \
+    && git clone https://github.com/github/platform-samples 
 
 USER root
 ENV HOME /
