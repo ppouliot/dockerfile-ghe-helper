@@ -17,7 +17,7 @@ print ('* GHE_TOKEN: ', os.environ['GHE_TOKEN'])
 print ('* GH_TOKEN: ', os.environ['GH_TOKEN'])
 print ('* GH_TOTP: ', os.environ['GHE_TOTP'])
 print (' ')
-print ('For available command type "help".'
+print ('For available command type "help".')
 print (' ')
 set_key('ghe-host',(os.environ['GHE_HOST']))
 set_key('ghe-ssh-user',(os.environ['GHE_SSH_USER']))
