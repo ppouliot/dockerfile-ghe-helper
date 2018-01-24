@@ -6,8 +6,8 @@ if [ -e /root/.ssh/id_rsa ] || [ -e /root/.ssh/id_dsa ] || [ -e /root/.ssh/id_ed
   echo "SSH Keys Found."
   echo -n "Starting SSH_AGENT. "; eval `ssh-agent` &&  ssh-add ; 
   echo " " 
-  echo "Starting GHE" 
-  echo " " 
+  echo "Starting GHE."
+  echo " "
   /ghe-startup.py
 else
   echo -n "No SSH Keys Found. Starting GHE"
