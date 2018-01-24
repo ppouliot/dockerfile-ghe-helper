@@ -1,12 +1,9 @@
-#FROM openjdk:9-jdk
-#FROM library/ubuntu:latest
 FROM alpine:latest
 MAINTAINER peter@pouliot.net
 
 ENV GHE_VERSION 0.0.5
 ENV JENKINS_VERSION 3.16
 ENV JENKINS_CLI_VERSION 3.16
-#ENV PYPY_VERSION pypy2-v5.10.0-linux64
 ENV PYPY_VERSION pypy3-v5.10.1-linux64
 
 USER root
@@ -29,8 +26,11 @@ RUN \
     ln -s `which python3` /usr/local/bin/python \
     && ln -s `which pip3` /usr/local/bin/pip \
     && pip3 install argparse setuptools future jenkins-job-builder keyrings.alt Pygments \
+# To install from a release
 #    && pip3 install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz 
+# To install directly from git
 #    && pip3 install git+https://git.generalassemb.ly/ga-admin-utils/ghe.git
+# Installing downstream with some bug fixes.
     && pip3 install git+https://github.com/ppouliot/ghe.git
 
 RUN gem install bundler 
