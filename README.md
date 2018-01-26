@@ -54,7 +54,6 @@ The following resources were used in the creation of this platform.
 
   1. github/backup-utils
     1. https://github.com/github/backup-utils
-
   2. GHE
     1. https://github.com/ppouliot/ghe (Code used in this container)
     2. https://git.generalassemb.ly/ga-admin-utils/ghe (Origianl Source of the code used in this container)
