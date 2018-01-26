@@ -22,13 +22,18 @@ The typical usage of this falls into the following 3 catagories.
 2. Github/Github Enteprise Backups
 3. Creation of markup using tooling specific for use in GH-Pages/GHE-Pages  
 
-## Github to Github Enterprise Mitrations
-### Required Environment Varibles
-The following Environmental Variables must be set either in the `docker run ` statement
-by using a file containing the variables and supplying the `--env-file <your_file>`
-or using `-e` and pass in each required variable independently.
+1. Github to Github Enterprise Migrations
+   1. Required Environment Varibles
 
-####  example: Environment Variables
+      The following Environmental Variables must be set either in the `docker run ` statement
+      by using a file containing the variables and supplying the `--env-file <your_file>`
+      or using `-e` and pass in each required variable independently.
+
+   2. Example: Environment Variables
+
+      Included in this project is a sample [ file ](/environment.example) containing the environment
+      variables needed to bo be configured in order to successfully migrate
+      Organizations from Github to Github Enterprise. 
 
 ```
 GHE_HOST=github.yourghe.com
@@ -41,9 +46,6 @@ GH_TOKEN=1234567890abcdef1234567890abcdef12345678
 GHE_TOTP=1234567890abcdef1234567890abcdef12345678
 ```
 
-Included in this project is a sample [ file ](/environment.example) containing the environment
-variables needed to bo be configured in order to successfully migrate
-Organizations from Github to Github Enterprise. 
 
 ## References
 
