@@ -13,7 +13,7 @@ This is the Dockerfile for building Github Enterprise Helper (ghe-helper).
 Github Enterprise Helper is a container platform built with tooling for
 interacting with Github Enterprise and Github.com data and functionality.
 
-## Typical Usage
+## Typical Use Cases
 
 The typical usage of this falls into the following 3 catagories.
 
