@@ -58,15 +58,18 @@ The typical usage of this falls into the following 3 catagories.
       ```
 
    2. **SSH Keys**
+
       SSH Keys that have admin access to the Github Enterprise Instance are required.  These can be passed
       into the container at runtime using ``` -v path/to/.ssh:/root/.ssh ```. Additional information on how
       to generate ssh keys can be found [here.](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
       
 
    3. **Running the Container**
+
+      The following docker command can be used to run the container.
    
       ```
-      docker run
+      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper
 
       ```
 
