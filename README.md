@@ -80,6 +80,14 @@ The typical usage of this falls into the following 3 catagories.
       For Github to Github specific information please follow the documentation located at the [fork](https://github.com/ppouliot/ghe) of the
       [original](https://git.generalassemb.ly/ga-admin-utils/ghe) GHE project that I am currently extending & maintaining [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
 
+## Github Enterprise Backup Utilities
+
+( coming soon. )
+
+## Github Pages
+
+( coming soon. )
+
 ## References
 
 The following resources were used in the creation of this platform.
