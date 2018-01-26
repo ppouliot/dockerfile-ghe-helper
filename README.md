@@ -7,6 +7,7 @@
   \___|_|\__|_||_\_,_|_.__/ |___|_||_\__\___|_| | .__/_| |_/__|___| |_||_\___|_| .__/\___|_|  
                                                 |_|                            |_|            
 ```
+
 ## Description
 
 This is the Dockerfile for building Github Enterprise Helper (ghe-helper).
@@ -25,12 +26,12 @@ The typical usage of this falls into the following 3 catagories.
 
 
 ## References
+The following resources were used in the creation of this platform.
 
-### github/backup-utils
-* https://github.com/github/backup-utils
+  * github/backup-utils
+    1. https://github.com/github/backup-utils
 
-### ghe
-
-* https://github.com/ppouliot/ghe (Code used in this container)
-* https://git.generalassemb.ly/ga-admin-utils/ghe (Origianl Source of the code used in this container)
+  * GHE
+    1. https://github.com/ppouliot/ghe (Code used in this container)
+    2. https://git.generalassemb.ly/ga-admin-utils/ghe (Origianl Source of the code used in this container)
 
