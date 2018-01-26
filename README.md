@@ -80,9 +80,23 @@ The typical usage of this falls into the following 3 catagories.
       For Github to Github specific information please follow the documentation located at the [fork](https://github.com/ppouliot/ghe) of the
       [original](https://git.generalassemb.ly/ga-admin-utils/ghe) GHE project that I am currently extending & maintaining [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
 
-## Github Enterprise Backup Utilities
+## Github Backup Utilities
 
-( coming soon. )
+   1. Accessing the enterprise backup utilities in this container.
+
+   Github provides [tooling](https://github.com/github/backup-utils) for performing backups of Github Enterprise.  The Github Backup Utilities are included within this container
+   image.  Additoinally a ``gh-backup`` user is also added to the container image and configured for access to installed Github Backup Utilities..
+   Currently in order to access the  ``gh-backup`` user existing in this container you must run ``` su - gh-backup ``` as passed in option from the original docker command.
+
+   2. **Example Command**
+
+      The following is an example of the docker command to access the ``gh-backup`` user.
+
+      ```
+      docker pull ppouliot/ghe-helper:latest
+      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper 'su - gh-backup'
+      ```
+
 
 ## Github Pages
 
