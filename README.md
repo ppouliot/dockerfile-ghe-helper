@@ -26,25 +26,25 @@ The typical usage of this falls into the following 3 catagories.
 
 ### 1. Required Environment Varibles
 
-       The following Environmental Variables must be set either in the `docker run ` statement
-       by using a file containing the variables and supplying the `--env-file <your_file>`
-       or using `-e` and pass in each required variable independently.
-       The following variables are needed for successful migrations
+    The following Environmental Variables must be set either in the `docker run ` statement
+    by using a file containing the variables and supplying the `--env-file <your_file>`
+    or using `-e` and pass in each required variable independently.
+    The following variables are needed for successful migrations
 
-       * GHE_HOST: The hostname of your github enterprise server
-       * GHE_TOKEN: A token from your Github Enterprise server which has Site Admin Privileges.
-       * GHE_SSH_USER: The name of your Github Enterprise server administrator account
-       * GHE_SSH_PORT: The administrative ssh port of your Github Enterprise Instancea.
-       * GHE_PASS: The password for the Github Enterprise Admin Site.
-       * GHE_USER: The username of the account used for GHE_TOKEN
-       * GH_TOKEN: The Token of an Owner of the Repository on Github.com
-       * GHE_TOTP: same as GHE_TOKEN
+    * GHE_HOST: The hostname of your github enterprise server
+    * GHE_TOKEN: A token from your Github Enterprise server which has Site Admin Privileges.
+    * GHE_SSH_USER: The name of your Github Enterprise server administrator account
+    * GHE_SSH_PORT: The administrative ssh port of your Github Enterprise Instancea.
+    * GHE_PASS: The password for the Github Enterprise Admin Site.
+    * GHE_USER: The username of the account used for GHE_TOKEN
+    * GH_TOKEN: The Token of an Owner of the Repository on Github.com
+    * GHE_TOTP: same as GHE_TOKEN
 
-       **Example: Environment Variables**
+    **Example: Environment Variables**
 
-       Included in this project is a sample [ file ](/environment.example) containing the environment
-       variables needed to bo be configured in order to successfully migrate
-       Organizations from Github to Github Enterprise.  This file can be used as template.
+    Included in this project is a sample [ file ](/environment.example) containing the environment
+    variables needed to bo be configured in order to successfully migrate
+    Organizations from Github to Github Enterprise.  This file can be used as template.
 
        ```
        GHE_HOST=github.yourghe.com
