@@ -21,9 +21,9 @@ The typical usage of this falls into the following 3 catagories.
   1. Github to Github Enterprise Migrations
     1. Requirements
       1. Environment Varibles
-      Included in this project is a sample file containing the environment
-      variables needed to bo be configured in order to successfully migrate
-      Organizations from Github to Github Enterprise. 
+        Included in this project is a sample file containing the environment
+        variables needed to bo be configured in order to successfully migrate
+        Organizations from Github to Github Enterprise. 
 
   2. Github/Github Enteprise Backups
 
