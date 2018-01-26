@@ -7,6 +7,7 @@ ENV JENKINS_CLI_VERSION 3.16
 ENV PYPY_VERSION pypy3-v5.10.1-linux64
 
 USER root
+ENV HOME /root
 RUN \
 apk add --no-cache \
     git wget curl rsync openssh \
@@ -34,20 +35,12 @@ RUN \
 
 RUN gem install bundler 
 RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount sinatra 
-RUN mkdir -p ENV['HOME']/.byobu/bin ENV['HOME']
-COPY windows.ghe-helper ENV['HOME']/.byobu/windows.ghe-helper
 
-RUN adduser -D jenkins -h /home/jenkins  -s /bin/bash
+RUN byobu-enable 
+copy windows.byobu /root/.byobu/windows.tmux
+
 RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash
 RUN adduser -D gh-backup -h /home/gh-backup -s /bin/bash
-
-RUN \
-   echo -n "*** Installing Jenkins Slave and Client ***" \
-   && curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${JENKINS_VERSION}/remoting-${JENKINS_VERSION}.jar \
-   && curl --create-dirs -sSLo /usr/share/jenkins/cli.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/cli/${JENKINS_CLI_VERSION}/cli-${JENKINS_CLI_VERSION}-jar-with-dependencies.jar \
-   && chmod 755 /usr/share/jenkins \
-   && chmod 644 /usr/share/jenkins/slave.jar \
-   && chmod 644 /usr/share/jenkins/cli.jar
 
 ENV HOME /home/gh-pages
 USER gh-pages
@@ -63,8 +56,8 @@ RUN echo -n "*** Installing GitHub Backup Utils ***" && git clone -b stable http
     && echo -n "*** Installing GitHub Platform Samples ***" \
     && git clone https://github.com/github/platform-samples 
 
+ENV HOME /root
 USER root
-ENV HOME /
 WORKDIR $HOME
 COPY Dockerfile /Dockerfile
 COPY motd /etc/motd
