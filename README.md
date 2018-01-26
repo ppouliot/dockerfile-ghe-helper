@@ -5,7 +5,6 @@
   \___|_|\__|_||_\_,_|_.__/ |___|_||_\__\___|_| | .__/_| |_/__|___| |_||_\___|_| .__/\___|_|  
                                                 |_|                            |_|            
 '''
-
 # Dockerfile for building Github Enterprise Helper (dockerfile-ghe-helper)
 Github Enterprise Helper is a container  platform built for with tooling for interacting
 with Github Enterprise and Github.com.
