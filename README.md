@@ -82,7 +82,7 @@ The typical usage of this falls into the following 3 catagories.
 
 ## Github Backup Utilities
 
-   1. Accessing the enterprise backup utilities in this container.
+   1. **Accessing the Github backup utilities**
 
       Github provides [tooling](https://github.com/github/backup-utils) for performing backups of Github Enterprise.  The Github Backup Utilities are included within this container
       image.  Additoinally a ``gh-backup`` user is also added to the container image and configured for access to installed Github Backup Utilities..
