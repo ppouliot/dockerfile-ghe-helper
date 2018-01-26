@@ -73,7 +73,10 @@ The typical usage of this falls into the following 3 catagories.
       ```
 
       Once properly executed you will be placed into a running instance of the [GHE](https://github.com/ppouliot/ghe) application.
-      At that point follow the documentatation [here](https://github.com/ppouliot/ghe/wiki)
+      General usage information can be obtained by running help from the command shell or by visiting the wiki [here.](https://github.com/ppouliot/ghe/wiki)
+      
+      For Github to Github specific information please follow the documentation located at the fork of the
+      GHE project that I maintain [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
 
 ## References
 
