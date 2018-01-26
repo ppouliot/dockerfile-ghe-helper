@@ -94,7 +94,30 @@ The typical usage of this falls into the following 3 catagories.
 
       ```
       docker pull ppouliot/ghe-helper:latest
-      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper 'su - gh-backup'
+      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper byobu
+      ```
+
+      The following will be outputed after running the command above, putting you at prompt.  
+
+     
+      ``` 
+         ___ _ _   _        _      ___     _                    _          _  _     _
+        / __(_) |_| |_ _  _| |__  | __|_ _| |_ ___ _ _ _ __ _ _(_)______  | || |___| |_ __  ___ _ _
+       | (_ | |  _| ' \ || | '_ \ | _|| ' \  _/ -_) '_| '_ \ '_| (_-< -_) | __ / -_) | '_ \/ -_) '_|
+        \___|_|\__|_||_\_,_|_.__/ |___|_||_\__\___|_| | .__/_| |_/__|___| |_||_\___|_| .__/\___|_|
+                                                |_|                            |_|
+
+
+      Welcome to the light, powerful, text window manager, Byobu.
+      You can toggle the launch of Byobu at login with:
+        'byobu-disable' and 'byobu-enable'
+
+      For tips, tricks, and more information, see:
+       * http://bit.ly/byobu-help
+
+      / #
+      / # su - gh-backup
+
       ```
 
 
