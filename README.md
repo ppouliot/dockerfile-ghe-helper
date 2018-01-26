@@ -24,12 +24,12 @@ The typical usage of this falls into the following 3 catagories.
 
 ## Github to Github Enterprise Migrations
 
-   1. **Required Environment Varibles**
+### 1. Required Environment Varibles
 
-      The following Environmental Variables must be set either in the `docker run ` statement
-      by using a file containing the variables and supplying the `--env-file <your_file>`
-      or using `-e` and pass in each required variable independently.
-      The following variables are needed for successful migrations
+       The following Environmental Variables must be set either in the `docker run ` statement
+       by using a file containing the variables and supplying the `--env-file <your_file>`
+       or using `-e` and pass in each required variable independently.
+       The following variables are needed for successful migrations
 
       * GHE_HOST: The hostname of your github enterprise server
       * GHE_TOKEN: A token from your Github Enterprise server which has Site Admin Privileges.
