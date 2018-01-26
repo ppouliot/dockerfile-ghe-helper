@@ -1,3 +1,5 @@
+# dockerfile-ghe-helper
+
 ```
    ___ _ _   _        _      ___     _                    _          _  _     _               
   / __(_) |_| |_ _  _| |__  | __|_ _| |_ ___ _ _ _ __ _ _(_)______  | || |___| |_ __  ___ _ _ 
@@ -5,8 +7,6 @@
   \___|_|\__|_||_\_,_|_.__/ |___|_||_\__\___|_| | .__/_| |_/__|___| |_||_\___|_| .__/\___|_|  
                                                 |_|                            |_|            
 ```
-# dockerfile-ghe-helper
-
 ## Description
 
 This is the Dockerfile for building Github Enterprise Helper (ghe-helper).
