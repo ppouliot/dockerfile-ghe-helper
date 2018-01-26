@@ -84,9 +84,9 @@ The typical usage of this falls into the following 3 catagories.
 
    1. Accessing the enterprise backup utilities in this container.
 
-   Github provides [tooling](https://github.com/github/backup-utils) for performing backups of Github Enterprise.  The Github Backup Utilities are included within this container
-   image.  Additoinally a ``gh-backup`` user is also added to the container image and configured for access to installed Github Backup Utilities..
-   Currently in order to access the  ``gh-backup`` user existing in this container you must run ``` su - gh-backup ``` as passed in option from the original docker command.
+      Github provides [tooling](https://github.com/github/backup-utils) for performing backups of Github Enterprise.  The Github Backup Utilities are included within this container
+      image.  Additoinally a ``gh-backup`` user is also added to the container image and configured for access to installed Github Backup Utilities..
+      Currently in order to access the  ``gh-backup`` user existing in this container you must run ``` su - gh-backup ``` as passed in option from the original docker command.
 
    2. **Example Command**
 
