@@ -77,8 +77,8 @@ The typical usage of this falls into the following 3 catagories.
       General usage information can be obtained by running ``` help ``` from within the ``` GHE> ``` command shell or by visitingi
       the documentation [here.](https://github.com/ppouliot/ghe/wiki)
       
-      For Github to Github specific information please follow the documentation located at the fork of the
-      GHE project that I maintain [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
+      For Github to Github specific information please follow the documentation located at the [fork](https://github.com/ppouliot/ghe) of the
+      [original](https://git.generalassemb.ly/ga-admin-utils/ghe) GHE project that I am currently extending & maintaining [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
 
 ## References
 
