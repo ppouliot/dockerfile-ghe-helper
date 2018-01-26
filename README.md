@@ -1,4 +1,3 @@
-# dockerfile-ghe-helper
 '''
    ___ _ _   _        _      ___     _                    _          _  _     _               
   / __(_) |_| |_ _  _| |__  | __|_ _| |_ ___ _ _ _ __ _ _(_)______  | || |___| |_ __  ___ _ _ 
@@ -7,10 +6,11 @@
                                                 |_|                            |_|            
 '''
 
-## Github Enterprise Helper (ghe-helper)
-GHE-Helper a container platform built for interaction with Github Enterprise and Github.com
+# Dockerfile for building Github Enterprise Helper (dockerfile-ghe-helper)
+Github Enterprise Helper is a container  platform built for with tooling for interacting
+with Github Enterprise and Github.com.
 
-The typical usage of this falls into th following 3 catagories.
+The typical usage of this falls into the following 3 catagories.
 
 1. Github to Github Enterprise Migrations
 3. Github/Github Enteprise Backups
