@@ -18,9 +18,9 @@ interacting with Github Enterprise and Github.com data and functionality.
 
 The typical usage of this falls into the following 3 catagories.
 
-  1. Github to Github Enterprise Migrations
-  2. Github/Github Enteprise Backups
-  3. Creation of markup using tooling specific for use in GH-Pages/GHE-Pages  
+1. Github to Github Enterprise Migrations
+2. Github/Github Enteprise Backups
+3. Creation of markup using tooling specific for use in GH-Pages/GHE-Pages  
 
 ## Github to Github Enterprise Mitrations
 ### Required Environment Varibles
