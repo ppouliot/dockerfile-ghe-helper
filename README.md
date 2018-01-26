@@ -31,71 +31,71 @@ The typical usage of this falls into the following 3 catagories.
        or using `-e` and pass in each required variable independently.
        The following variables are needed for successful migrations
 
-      * GHE_HOST: The hostname of your github enterprise server
-      * GHE_TOKEN: A token from your Github Enterprise server which has Site Admin Privileges.
-      * GHE_SSH_USER: The name of your Github Enterprise server administrator account
-      * GHE_SSH_PORT: The administrative ssh port of your Github Enterprise Instancea.
-      * GHE_PASS: The password for the Github Enterprise Admin Site.
-      * GHE_USER: The username of the account used for GHE_TOKEN
-      * GH_TOKEN: The Token of an Owner of the Repository on Github.com
-      * GHE_TOTP: same as GHE_TOKEN
+       * GHE_HOST: The hostname of your github enterprise server
+       * GHE_TOKEN: A token from your Github Enterprise server which has Site Admin Privileges.
+       * GHE_SSH_USER: The name of your Github Enterprise server administrator account
+       * GHE_SSH_PORT: The administrative ssh port of your Github Enterprise Instancea.
+       * GHE_PASS: The password for the Github Enterprise Admin Site.
+       * GHE_USER: The username of the account used for GHE_TOKEN
+       * GH_TOKEN: The Token of an Owner of the Repository on Github.com
+       * GHE_TOTP: same as GHE_TOKEN
 
-      **Example: Environment Variables**
+       **Example: Environment Variables**
 
-      Included in this project is a sample [ file ](/environment.example) containing the environment
-      variables needed to bo be configured in order to successfully migrate
-      Organizations from Github to Github Enterprise.  This file can be used as template.
+       Included in this project is a sample [ file ](/environment.example) containing the environment
+       variables needed to bo be configured in order to successfully migrate
+       Organizations from Github to Github Enterprise.  This file can be used as template.
 
-      ```
-      GHE_HOST=github.yourghe.com
-      GHE_TOKEN= 1234567890abcdef1234567890abcdef12345678
-      GHE_SSH_USER=admin
-      GHE_SSH_PORT=122
-      GHE_USER=you@your-email.com
-      GHE_PASS=Y0urGh3P@ss0rd
-      GH_TOKEN=1234567890abcdef1234567890abcdef12345678
-      GHE_TOTP=1234567890abcdef1234567890abcdef12345678
-      ```
+       ```
+       GHE_HOST=github.yourghe.com
+       GHE_TOKEN= 1234567890abcdef1234567890abcdef12345678
+       GHE_SSH_USER=admin
+       GHE_SSH_PORT=122
+       GHE_USER=you@your-email.com
+       GHE_PASS=Y0urGh3P@ss0rd
+       GH_TOKEN=1234567890abcdef1234567890abcdef12345678
+       GHE_TOTP=1234567890abcdef1234567890abcdef12345678
+       ```
 
-   2. **SSH Keys**
+###    2. SSH Keys
 
-      SSH Keys that have admin access to the Github Enterprise Instance are required.  These can be passed
-      into the container at runtime using ``` -v path/to/.ssh:/root/.ssh ```. Additional information on how
-      to generate ssh keys can be found [here.](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+       SSH Keys that have admin access to the Github Enterprise Instance are required.  These can be passed
+       into the container at runtime using ``` -v path/to/.ssh:/root/.ssh ```. Additional information on how
+       to generate ssh keys can be found [here.](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
       
 
-   3. **Running the Container**
+###    3. Running the Container
 
-      The following docker commands can be used to run the container.
+       The following docker commands can be used to run the container.
    
-      ```
-      docker pull ppouliot/ghe-helper:latest
-      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper
-      ```
+       ```
+       docker pull ppouliot/ghe-helper:latest
+       docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper
+       ```
 
-      Once properly executed you will be placed into a running instance of the [GHE](https://github.com/ppouliot/ghe) application.
-      General usage information can be obtained by running ``` help ``` from within the ``` GHE> ``` command shell or by visitingi
-      the documentation [here.](https://github.com/ppouliot/ghe/wiki)
+       Once properly executed you will be placed into a running instance of the [GHE](https://github.com/ppouliot/ghe) application.
+       General usage information can be obtained by running ``` help ``` from within the ``` GHE> ``` command shell or by visitingi
+       the documentation [here.](https://github.com/ppouliot/ghe/wiki)
       
-      For Github to Github specific information please follow the documentation located at the [fork](https://github.com/ppouliot/ghe) of the
-      [original](https://git.generalassemb.ly/ga-admin-utils/ghe) GHE project that I am currently extending & maintaining [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
+       For Github to Github specific information please follow the documentation located at the [fork](https://github.com/ppouliot/ghe) of the
+       [original](https://git.generalassemb.ly/ga-admin-utils/ghe) GHE project that I am currently extending & maintaining [here.](https://github.com/ppouliot/ghe/wiki/ghe-migrate)
 
 ## Github Backup Utilities
 
-   1. **Accessing the Github backup utilities**
+### 1. Accessing the Github backup utilities
 
-      Github provides [tooling](https://github.com/github/backup-utils) for performing backups of Github Enterprise.  The Github Backup Utilities are included within this container
-      image.  Additoinally a ``gh-backup`` user is also added to the container image and configured for access to installed Github Backup Utilities..
-      Currently in order to access the  ``gh-backup`` user existing in this container you must run ``` su - gh-backup ``` as passed in option from the original docker command.
+       Github provides [tooling](https://github.com/github/backup-utils) for performing backups of Github Enterprise.  The Github Backup Utilities are included within this container
+       image.  Additoinally a ``gh-backup`` user is also added to the container image and configured for access to installed Github Backup Utilities..
+       Currently in order to access the  ``gh-backup`` user existing in this container you must run ``` su - gh-backup ``` as passed in option from the original docker command.
 
-   2. **Example Command**
+### 2. Example Command
 
-      The following is an example of the docker command to access the ``gh-backup`` user.
+       The following is an example of the docker command to access the ``gh-backup`` user.
 
-      ```
-      docker pull ppouliot/ghe-helper:latest
-      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper 'su - gh-backup'
-      ```
+       ```
+       docker pull ppouliot/ghe-helper:latest
+       docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper 'su - gh-backup'
+       ```
 
 
 ## Github Pages
