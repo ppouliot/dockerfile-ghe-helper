@@ -22,7 +22,8 @@ The typical usage of this falls into the following 3 catagories.
 2. Github/Github Enteprise Backups
 3. Creation of markup using tooling specific for use in GH-Pages/GHE-Pages  
 
-1. **Github to Github Enterprise Migrations**
+## Github to Github Enterprise Migrations
+
    1. **Required Environment Varibles**
 
       The following Environmental Variables must be set either in the `docker run ` statement
