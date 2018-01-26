@@ -97,7 +97,7 @@ The typical usage of this falls into the following 3 catagories.
       docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper byobu
       ```
 
-      The following will be outputed after running the command above, putting you at prompt.  
+      The following will be outputed after running the command above, putting you at the root prompt.  
 
      
       ``` 
@@ -116,6 +116,11 @@ The typical usage of this falls into the following 3 catagories.
        * http://bit.ly/byobu-help
 
       / #
+      ```
+
+      From the instance root prompt type the following to access the gh-backup user.
+
+      ```
       / # su - gh-backup
 
       ```
