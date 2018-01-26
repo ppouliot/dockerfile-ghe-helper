@@ -72,6 +72,7 @@ The typical usage of this falls into the following 3 catagories.
       docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper
 
       ```
+
      Once properly executed you will be placed into a running instance of the [GHE](https://github.com/ppouliot/ghe) application.
      At that point follow the documentatation [here](/wiki)
 

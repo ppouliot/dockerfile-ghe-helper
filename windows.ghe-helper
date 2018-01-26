@@ -1,0 +1,3 @@
+screen -t GHE /ghe-startup.sh
+screen -t gh-backup -d -m 'su - gh-backup'
+screen -t gh-pages -d -m 'su - gh-pages'

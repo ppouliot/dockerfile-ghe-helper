@@ -12,7 +12,7 @@ apk add --no-cache \
     git wget curl rsync openssh \
     bash openssh-server vim \
     expect screen byobu \
-    expect sudo ruby ruby-dev \
+    sudo ruby ruby-dev \
     gcc make bison bzip2 ca-certificates \
     libffi-dev gdbm-dev  openssl-dev yaml-dev \
     python3 python3-dev jq build-base \
@@ -20,12 +20,11 @@ apk add --no-cache \
     ruby-irb ruby-rake ruby-io-console ruby-bigdecimal ruby-json ruby-bundler \
     libstdc++ tzdata bash ca-certificates \
     &&  echo 'gem: --no-document' > /etc/gemrc 
-#    && ln -s `which python3` /usr/local/bin/python
 
 RUN \
     ln -s `which python3` /usr/local/bin/python \
     && ln -s `which pip3` /usr/local/bin/pip \
-    && pip3 install argparse setuptools future jenkins-job-builder keyrings.alt Pygments \
+    && pip3 install argparse setuptools future jenkins-job-builder keyrings.alt Pygments stashy python-gitlab \
 # To install from a release
 #    && pip3 install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz 
 # To install directly from git
@@ -34,7 +33,9 @@ RUN \
     && pip3 install git+https://github.com/ppouliot/ghe.git
 
 RUN gem install bundler 
-RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount 
+RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount sinatra 
+RUN mkdir -p ENV['HOME']/.byobu/bin ENV['HOME']
+COPY windows.ghe-helper ENV['HOME']/.byobu/windows.ghe-helper
 
 RUN adduser -D jenkins -h /home/jenkins  -s /bin/bash
 RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash
