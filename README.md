@@ -66,9 +66,10 @@ The typical usage of this falls into the following 3 catagories.
 
    3. **Running the Container**
 
-      The following docker command can be used to run the container.
+      The following docker commands can be used to run the container.
    
       ```
+      docker pull ppouliot/ghe-helper:latest
       docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper
       ```
 
