@@ -1,0 +1,6 @@
+new-session -n ghe-helper ;
+new-window -ad -n GHE /ghe-startup.sh ;
+new-window -ad -n gh-backup  su - gh-backup;
+new-window -ad -n gh-pages  su - gh-pages;
+select-layout tiled ;
+select-pane -t 0
