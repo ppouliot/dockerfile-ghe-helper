@@ -25,10 +25,4 @@ The typical usage of this falls into the following 3 catagories.
 
 * https://github.com/ppouliot/ghe (Code used in this container)
 * https://git.generalassemb.ly/ga-admin-utils/ghe (Origianl Source of the code used in this container)
-```
-   ___ _ _   _        _      ___     _                    _          _  _     _               
-  / __(_) |_| |_ _  _| |__  | __|_ _| |_ ___ _ _ _ __ _ _(_)______  | || |___| |_ __  ___ _ _ 
- | (_ | |  _| ' \ || | '_ \ | _|| ' \  _/ -_) '_| '_ \ '_| (_-< -_) | __ / -_) | '_ \/ -_) '_|
-  \___|_|\__|_||_\_,_|_.__/ |___|_||_\__\___|_| | .__/_| |_/__|___| |_||_\___|_| .__/\___|_|  
-                                                |_|                            |_|            
-```
+
