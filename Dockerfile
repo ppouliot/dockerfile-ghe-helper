@@ -5,7 +5,6 @@ ENV GHE_VERSION 0.0.5
 ENV JENKINS_VERSION 3.16
 ENV JENKINS_CLI_VERSION 3.16
 ENV PYPY_VERSION pypy3-v5.10.1-linux64
-ENV LANG en_US.utf-8
 
 USER root
 ENV HOME /root
@@ -14,13 +13,15 @@ apk add --no-cache \
     git wget curl rsync openssh \
     bash openssh-server vim \
     expect screen byobu \
-    sudo ruby ruby-dev \
+    sudo ruby ruby-dev g++ \
     gcc make bison bzip2 ca-certificates \
     libffi-dev gdbm-dev  openssl-dev yaml-dev \
     python3 python3-dev jq build-base \
     openjdk8-jre libbz2 sqlite-dev procps zlib-dev \
-    ruby-irb ruby-rake ruby-io-console ruby-bigdecimal ruby-json ruby-bundler \
+    ruby-irb ruby-rake ruby-io-console \
+    ruby-bigdecimal ruby-json ruby-bundler \
     libstdc++ tzdata bash ca-certificates \
+    linux-headers icu-dev libxml2-dev libxslt-dev \
     &&  echo 'gem: --no-document' > /etc/gemrc 
 
 RUN \
@@ -35,10 +36,17 @@ RUN \
     && pip3 install git+https://github.com/ppouliot/ghe.git
 
 RUN gem install bundler 
-RUN gem install github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount sinatra 
+RUN gem install github-pages jekyll rouge jekyll-redirect-from \
+    kramdown rdiscount sinatra gollum github-markdown redcarpet \
+    org-ruby rdoc
 
-RUN byobu-enable 
-copy windows.byobu /root/.byobu/windows.tmux
+RUN byobu-enable \
+    byobu-enable-prompt 
+RUN byobu-ctrl-a screen \
+    byobu-janitor
+COPY byobu/windows.tmux /root/.byobu/windows.tmux
+COPY byobu/.tmux.conf /root/.byobu/.tmux.conf
+COPY boybu/statusrc /usr/share/byobu/status/statusrc
 
 RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash
 RUN adduser -D gh-backup -h /home/gh-backup -s /bin/bash
@@ -64,5 +72,8 @@ COPY Dockerfile /Dockerfile
 COPY motd /etc/motd
 COPY ghe-startup.py /ghe-startup.py
 COPY ghe-startup.sh /ghe-startup.sh
+COPY ghe-migrate-logs.sh /ghe-migrate-logs.sh
 VOLUME /data
-CMD /ghe-startup.sh
+#CMD /ghe-startup.sh
+CMD byobu
+EXPOSE 4567
