@@ -8,9 +8,9 @@ if [ -e /root/.ssh/id_rsa ] || [ -e /root/.ssh/id_dsa ] || [ -e /root/.ssh/id_ed
   echo " " 
   echo "Starting GHE."
   echo " "
-  /ghe-startup.py
+  /usr/local/bin/ghe-startup.py
 else
   echo -n "No SSH Keys Found. Starting GHE"
-  /ghe-startup.py
+  /usr/local/bin/ghe-startup.py
 fi
 

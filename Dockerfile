@@ -35,45 +35,52 @@ RUN \
 # Installing downstream with some bug fixes.
     && pip3 install git+https://github.com/ppouliot/ghe.git
 
-RUN gem install bundler 
-RUN gem install github-pages jekyll rouge jekyll-redirect-from \
-    kramdown rdiscount sinatra gollum github-markdown redcarpet \
-    org-ruby rdoc
+RUN echo "*** Installing Gems required for GH-Pages/jekyll and GH-Wiki/gollum ***" 
+RUN gem install bundler github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount sinatra gollum github-markdown redcarpet org-ruby rdoc
 
-RUN byobu-enable \
+RUN \
+    echo "*** Enabling Byobu for Startup of GHE-Helper Services ***" \
+    byobu-enable \
     byobu-enable-prompt 
+
 RUN byobu-ctrl-a screen \
     byobu-janitor
+
 COPY byobu/windows.tmux /root/.byobu/windows.tmux
 COPY byobu/.tmux.conf /root/.byobu/.tmux.conf
-COPY boybu/statusrc /usr/share/byobu/status/statusrc
+COPY byobu/statusrc /usr/share/byobu/status/statusrc
 
+RUN \
+    echo "*** Installing GitHub Backup Utils to /usr/github-backup-utils ***" \
+    && git clone -b stable https://github.com/github/backup-utils /usr/github-backup-utils \
+    && mkdir -p /etc/github-backup-utils/ \
+    && echo "*** Installing GitHub Platform Samples to /opt/github-platform-samples ***" \
+    && git clone https://github.com/github/platform-samples github-platform-samples
+COPY etc/github-backup-utils/backup.config /etc/github-backup-utils/
 RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash
 RUN adduser -D gh-backup -h /home/gh-backup -s /bin/bash
 
 ENV HOME /home/gh-pages
 USER gh-pages
 WORKDIR $HOME
-RUN echo -n "*** Creating GH/GHE wiki/pages src directories ***" \
-    && mkdir -p ghe.wiki ghe.pages gh.wiki gh.pages
+RUN echo "*** Creating GH/GHE wiki/pages src directories ***" \
+    && mkdir -p wiki pages
 
 ENV HOME /home/gh-backup
 USER gh-backup
 WORKDIR $HOME
-RUN echo -n "*** Installing GitHub Backup Utils ***" && git clone -b stable https://github.com/github/backup-utils \
-    && cp ./backup-utils/backup.config-example ./backup.config \
-    && echo -n "*** Installing GitHub Platform Samples ***" \
-    && git clone https://github.com/github/platform-samples 
+RUN \
+    echo "*** Installing GitHub Backup Utils ***" \
+    && mkdir bin
 
+ENV PATH="/usr/github-backup-utils/bin:${PATH}"
 ENV HOME /root
 USER root
 WORKDIR $HOME
 COPY Dockerfile /Dockerfile
-COPY motd /etc/motd
-COPY ghe-startup.py /ghe-startup.py
-COPY ghe-startup.sh /ghe-startup.sh
-COPY ghe-migrate-logs.sh /ghe-migrate-logs.sh
+COPY etc/motd /etc/motd
+COPY bin/* /usr/local/bin/
 VOLUME /data
 #CMD /ghe-startup.sh
 CMD byobu
-EXPOSE 4567
+EXPOSE 4000 4567
