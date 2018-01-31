@@ -57,10 +57,14 @@ RUN \
     && mkdir -p /etc/github-backup-utils/ \
     && echo "*** Installing GitHub Platform Samples to /opt/github-platform-samples ***" \
     && git clone https://github.com/github/platform-samples github-platform-samples \
-    && sed -i 's/PATH=/PATH=\/usr\/github-backup-utils\/bin\:/g' /etc/profile
+    && sed -i 's/PATH=/PATH=\/usr\/github-backup-utils\/bin\:/g' /etc/profile \
+    && sed -i 's/\\h/\\u\@\\h/g' /etc/profile 
+
 COPY etc/github-backup-utils/backup.config /etc/github-backup-utils/
-RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash
-RUN adduser -D gh-backup -h /home/gh-backup -s /bin/bash
+RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash \
+    && echo "gh-pages:gh-pages" | chpasswd \
+    && adduser -D gh-backup -h /home/gh-backup -s /bin/bash \
+    && echo "gh-backup:gh-backup" | chpasswd
 
 ENV HOME /home/gh-pages
 USER gh-pages
@@ -74,6 +78,7 @@ WORKDIR $HOME
 RUN \
     echo "*** Installing GitHub Backup Utils ***" \
     && mkdir bin
+
 ENV PATH "/usr/github-backup-utils/bin:${PATH}"
 ENV HOME /root
 USER root
@@ -82,6 +87,5 @@ COPY Dockerfile /Dockerfile
 COPY etc/motd /etc/motd
 COPY bin/* /usr/local/bin/
 VOLUME /data
-#CMD /ghe-startup.sh
 CMD byobu
 EXPOSE 4000 4567
