@@ -56,7 +56,8 @@ RUN \
     && git clone -b stable https://github.com/github/backup-utils /usr/github-backup-utils \
     && mkdir -p /etc/github-backup-utils/ \
     && echo "*** Installing GitHub Platform Samples to /opt/github-platform-samples ***" \
-    && git clone https://github.com/github/platform-samples github-platform-samples
+    && git clone https://github.com/github/platform-samples github-platform-samples \
+    && sed -i 's/PATH=/PATH=\/usr\/github-backup-utils\/bin\:/g' /etc/profile
 COPY etc/github-backup-utils/backup.config /etc/github-backup-utils/
 RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash
 RUN adduser -D gh-backup -h /home/gh-backup -s /bin/bash
@@ -73,8 +74,7 @@ WORKDIR $HOME
 RUN \
     echo "*** Installing GitHub Backup Utils ***" \
     && mkdir bin
-
-ENV PATH="/usr/github-backup-utils/bin:${PATH}"
+ENV PATH "/usr/github-backup-utils/bin:${PATH}"
 ENV HOME /root
 USER root
 WORKDIR $HOME
