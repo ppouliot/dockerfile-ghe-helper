@@ -14,13 +14,22 @@ This is the Dockerfile for building Github Enterprise Helper (ghe-helper).
 Github Enterprise Helper is a container platform built with tooling for
 interacting with Github Enterprise and Github.com data and functionality.
 
+The container launches multiple  ``` byobu ``` windows which present different 
+GHE tooling or vizualizes logging of the GHE instance.
+
+The core of this originated around a project to consolidate multiple SCMs into 
+Github Enterprise.  
+ 
+
 ## Typical Use Cases
 
-The typical usage of this falls into the following 3 catagories.
+The typical usage of this is GHE Administration however falls into 
+the following 3 sub catagories.
 
 1. Github to Github Enterprise Migrations
 2. Github/Github Enteprise Backups
 3. Creation of markup using tooling specific for use in GH-Pages/GHE-Pages  
+
 
 ## Github to Github Enterprise Migrations
 
@@ -70,10 +79,16 @@ The typical usage of this falls into the following 3 catagories.
    
       ```
       docker pull ppouliot/ghe-helper:latest
-      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper
+      docker run -h ghe-helper -it --env-file .env -v $HOME/.ssh:/root/.ssh  -p 4000:4000 -p 4567:4567 ppouliot/ghe-helper
       ```
 
-      Once properly executed you will be placed into a running instance of the [GHE](https://github.com/ppouliot/ghe) application.
+      Once properly executed you will be placed into a running instance of the GHE-Helper presented as a multi-window console experience.
+      The console is broken into four different areas.   
+
+## GHE/ghe-migrator.log
+
+      This includes the [GHE](https://github.com/ppouliot/ghe) application.  GHE is a python application wrapping GHE tooling on the GHE Appliance.
+      GHE can be used for basic admin tasks as well as Github to GHE migrations. 
       General usage information can be obtained by running ``` help ``` from within the ``` GHE> ``` command shell or by visitingi
       the documentation [here.](https://github.com/ppouliot/ghe/wiki)
       
@@ -90,40 +105,7 @@ The typical usage of this falls into the following 3 catagories.
 
    2. **Example Command**
 
-      The following is an example of the docker command to access the ``gh-backup`` user.
-
-      ```
-      docker pull ppouliot/ghe-helper:latest
-      docker run --name ghe-helper -it --env-file .env -v ./.ssh:/root/.ssh ppouliot/ghe-helper byobu
-      ```
-
-      The following will be outputed after running the command above, putting you at the root prompt.  
-
-     
-      ``` 
-         ___ _ _   _        _      ___     _                    _          _  _     _
-        / __(_) |_| |_ _  _| |__  | __|_ _| |_ ___ _ _ _ __ _ _(_)______  | || |___| |_ __  ___ _ _
-       | (_ | |  _| ' \ || | '_ \ | _|| ' \  _/ -_) '_| '_ \ '_| (_-< -_) | __ / -_) | '_ \/ -_) '_|
-        \___|_|\__|_||_\_,_|_.__/ |___|_||_\__\___|_| | .__/_| |_/__|___| |_||_\___|_| .__/\___|_|
-                                                |_|                            |_|
-
-
-      Welcome to the light, powerful, text window manager, Byobu.
-      You can toggle the launch of Byobu at login with:
-        'byobu-disable' and 'byobu-enable'
-
-      For tips, tricks, and more information, see:
-       * http://bit.ly/byobu-help
-
-      / #
-      ```
-
-      From the instance root prompt type the following to access the gh-backup user.
-
-      ```
-      / # su - gh-backup
-
-      ```
+       ( coming soon. )
 
 
 ## Github Pages
