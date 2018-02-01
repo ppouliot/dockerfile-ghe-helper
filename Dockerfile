@@ -37,7 +37,10 @@ RUN \
     && pip3 install git+https://github.com/ppouliot/ghe.git
 
 RUN echo "*** Installing Gems required for GH-Pages/jekyll and GH-Wiki/gollum ***" 
-RUN gem install bundler github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount sinatra gollum github-markdown redcarpet org-ruby rdoc
+RUN gem install bundler github-pages jekyll \
+    rouge jekyll-redirect-from kramdown rdiscount \
+    sinatra gollum github-markdown redcarpet \
+    org-ruby rdoc rake bitbucket_rest_api
 
 RUN \
     echo "*** Enabling Byobu for Startup of GHE-Helper Services ***" \

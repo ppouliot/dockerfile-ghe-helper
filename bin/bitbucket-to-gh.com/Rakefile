@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# gem install bitbucket_rest_api
+# gem install octokit
+require 'bitbucket_rest_api'
+require 'octokit'
+
+task :migrate do
+  bitbucket = BitBucket.new login: '', password: ''
+  bitbucket_owner = ''
+  github = Octokit::Client.new login: '', password: ''
+  github_org = ''
+
+
+  bitbucket.repos.list do |repo|
+    next unless repo.owner == bitbucket_owner
+
+
+    if github.repository?("#{github_org}/#{repo.slug}")
+      puts "#{repo.slug} exists! ================================="
+    else
+      github.create_repo(repo.slug, organization: github_org, private: true)
+      url = "https://bitbucket.org/#{repo.owner}/#{repo.slug}"
+      system("mkdir #{repo.slug}")
+      system("git clone --mirror #{url} #{repo.slug}/.git")
+      Dir.chdir(repo.slug) do
+        system("git config --bool core.bare false")
+        system("git remote add gh https://github.com/#{github_org}/#{repo.slug}")
+        system("git push --all gh")
+      end
+    end
+  end
+end
