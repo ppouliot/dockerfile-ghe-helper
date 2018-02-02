@@ -22,9 +22,7 @@ Github Enterprise.
 
 You can find published versions of this image on the [Docker Hub.](https://hub.docker.com/u/ppouliot)
 
-[![](https://images.microbadger.com/badges/image/ppouliot/ghe-helper.svg)](https://microbadger.com/images/ppouliot/ghe-helper)
-
-[![](https://images.microbadger.com/badges/version/ppouliot/ghe-helper.svg)](https://microbadger.com/images/ppouliot/ghe-helper)
+* [![](https://images.microbadger.com/badges/image/ppouliot/ghe-helper.svg)](https://microbadger.com/images/ppouliot/ghe-helper) [![](https://images.microbadger.com/badges/version/ppouliot/ghe-helper.svg)](https://microbadger.com/images/ppouliot/ghe-helper) ppouliot/ghe-helper
  
 ## Typical Use Cases
 
