@@ -19,8 +19,10 @@ GHE tooling or vizualizes logging of the GHE instance.
 
 The core of this originated around a project to consolidate multiple SCMs into 
 Github Enterprise.  
- 
 
+You can find published versions of this image on the [Docker Hub.](https://hub.docker.com/u/ppouliot)
+ 
+* [![](https://images.microbadger.com/badges/image/ppouliot/ghe-helper.svg)](http://microbadger.com/images/ppouliot/ghe-helper) [![](https://images.microbadger.com/badges/version/ppouliot/ghe-helper.svg)](http://microbadger.com/images/ppouliot/ghe-helper) [ppouliot/ghe-helper](https://hub.docker.com/r/ppouliot/ghe-helper/)
 ## Typical Use Cases
 
 The typical usage of this is GHE Administration however falls into 
