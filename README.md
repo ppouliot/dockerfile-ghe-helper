@@ -5,7 +5,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/issues)
 [![GitHub forks](https://img.shields.io/github/forks/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/network)
 [![Docker Automated build](https://img.shields.io/docker/automated/ppouliot/puppet-ipam.svg)](https://hub.docker.com/v2/repositories/ppouliot/ghe-helper/autobuild/)
-[![Docker Build Status](https://img.shields.io/docker/build/ppouliot/puppet-ipam.svg)](https://hub.docker.com/v2/repositories/ppouliot/ghe-helper/buildhistory/)
+[![Docker Build Status](https://img.shields.io/docker/build/ppouliot/puppet-ipam.svg)](https://hub.docker.com/v2/repositories/ppouliot/ghe-helper/builds/)
 [![Docker pulls](https://img.shields.io/docker/pulls/ppouliot/puppet-ipam.svg?style=plastic)](https://registry.hub.docker.com/v2/repositories/ppouliot/ghe-helper/)
 
 ```
