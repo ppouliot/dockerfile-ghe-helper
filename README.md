@@ -4,10 +4,9 @@
 [![Latest version](https://img.shields.io/github/tag/ppouliot/dockerfile-ghe-helper.svg?label=release&style=flat&maxAge=2592000)](https://github.com/ppouliot/dockerfile-ghe-helper/tags)
 [![GitHub issues](https://img.shields.io/github/issues/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/issues)
 [![GitHub forks](https://img.shields.io/github/forks/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/network)
-[![Docker Automated build](https://img.shields.io/docker/automated/ppouliot/puppet-ipam.svg)](https://registry.hub.docker.com/v2/repositories/ppouliot/ghe-helper)
-[![Docker Build Status](https://img.shields.io/docker/build/ppouliot/puppet-ipam.svg)](https://registry.hub.docker.com/v2/repositories/ppouliot/ghe-helper)
-
-[![Docker pulls](https://img.shields.io/docker/pulls/jrottenberg/ffmpeg.svg?style=plastic)](https://registry.hub.docker.com/v2/repositories/jrottenberg/ffmpeg/)
+[![Docker Automated build](https://img.shields.io/docker/automated/ppouliot/puppet-ipam.svg)](https://registry.hub.docker.com/v2/repositories/ppouliot/ghe-helper/)
+[![Docker Build Status](https://img.shields.io/docker/build/ppouliot/puppet-ipam.svg)](https://registry.hub.docker.com/v2/repositories/ppouliot/ghe-helper/)
+[![Docker pulls](https://img.shields.io/docker/pulls/ppouliot/puppet-ipam.svg?style=plastic)](https://registry.hub.docker.com/v2/repositories/ppouliot/ghe-helper/)
 
 ```
    ___ _ _   _        _      ___     _                    _          _  _     _               
