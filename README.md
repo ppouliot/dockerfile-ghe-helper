@@ -5,6 +5,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/issues)
 [![GitHub forks](https://img.shields.io/github/forks/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/network)
 [![Docker Automated build](https://img.shields.io/docker/automated/ppouliot/puppet-ipam.svg)]()
+[![Docker Build Status](https://img.shields.io/docker/build/ppouliot/puppet-ipam.svg)]()
 
 ```
    ___ _ _   _        _      ___     _                    _          _  _     _               
