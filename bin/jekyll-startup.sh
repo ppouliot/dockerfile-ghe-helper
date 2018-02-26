@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 if [ -e $HOME/pages/index.html ]; then 
   echo "Pages(index.html) Found"
   echo "starting jekyll"
@@ -11,9 +12,9 @@ else
   cd $HOME
   echo "source 'https://rubygems.org'" > Gemfile
   echo "gem 'github-pages', group: :jekyll_plugins" >> Gemfile
+  git init .
   cd $HOME && bundle install
   cd $HOME && bundle exec jekyll _3.3.0_ new pages
   cd $HOME/pages && bundle exec jekyll build
-  cd $HOME/pages && bundle exec jekyll serve --watch --incremental
+  cd $HOME/pages && bundle exec jekyll serve --watch --incremental --host=0.0.0.0
 fi
-

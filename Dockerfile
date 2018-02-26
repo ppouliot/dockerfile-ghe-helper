@@ -66,8 +66,10 @@ RUN \
 COPY etc/github-backup-utils/backup.config /etc/github-backup-utils/
 RUN adduser -D gh-pages -h /home/gh-pages -s /bin/bash \
     && echo "gh-pages:gh-pages" | chpasswd \
+    && echo "gh-pages	ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers  \
     && adduser -D gh-backup -h /home/gh-backup -s /bin/bash \
-    && echo "gh-backup:gh-backup" | chpasswd
+    && echo "gh-backup:gh-backup" | chpasswd \
+    && echo "gh-backup	ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ENV HOME /home/gh-pages
 USER gh-pages
