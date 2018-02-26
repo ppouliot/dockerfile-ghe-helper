@@ -4,4 +4,4 @@ set -ex
 USERNAME=ppouliot
 # image name
 IMAGE=ghe-helper
-docker build -t $USERNAME/$IMAGE:latest .
+docker build --no-cache -t $USERNAME/$IMAGE:latest .
