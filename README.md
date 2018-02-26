@@ -1,7 +1,7 @@
 # dockerfile-ghe-helper
 [![License](https://img.shields.io/github/license/ppouliot/dockerfile-ghe-helper.svg)](./LICENSE)
 [![Source Code](https://img.shields.io/badge/source-GitHub-blue.svg?style=flat)](https://github.com/ppouliot/dockerfile-ghe-helper)
-[![Latest version](https://img.shields.io/github/tag/ppouliot/dockerfile-ghe-helper.svg?label=release&style=flat&maxAge=2592000)](https://github.com/ppouliot/dockerfile-ghe-helper/tags)
+[![Latest version](https://img.shields.io/github/tag/ppouliot/dockerfile-ghe-helper.svg?label=release&style=flat&maxAge=3600)](https://github.com/ppouliot/dockerfile-ghe-helper/tags)
 [![GitHub issues](https://img.shields.io/github/issues/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/issues)
 [![GitHub forks](https://img.shields.io/github/forks/ppouliot/dockerfile-ghe-helper.svg)](https://github.com/ppouliot/dockerfile-ghe-helper/network)
 [![Docker Automated build](https://img.shields.io/docker/automated/ppouliot/ghe-helper.svg)](https://hub.docker.com/v2/repositories/ppouliot/ghe-helper/autobuild/)
