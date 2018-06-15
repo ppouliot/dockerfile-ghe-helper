@@ -1,8 +1,7 @@
 FROM alpine:latest
-MAINTAINER peter@pouliot.net
-
+LABEL maintainer="peter@pouliot.net"
+COPY Dockerfile /Dockerfile
 ADD VERSION .
-ADD Dockerfile .
 ENV GHE_VERSION 0.0.5
 
 USER root
