@@ -2,7 +2,7 @@ FROM alpine:edge
 LABEL maintainer="peter@pouliot.net"
 COPY Dockerfile /Dockerfile
 ADD VERSION .
-ENV GHE_VERSION 0.0.5
+ENV GHE_VERSION 0.0.6
 
 USER root
 ENV HOME /root
