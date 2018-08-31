@@ -18,6 +18,7 @@ git tag -a "$version" -m "version $version"
 git push
 git push --tags
 docker tag $USERNAME/$IMAGE $USERNAME/$IMAGE:$version
+docker tag $USERNAME/$version $USERNAME/$IMAGE:latest
 # push it
 docker push $USERNAME/$IMAGE
 docker push $USERNAME/$IMAGE:$version
