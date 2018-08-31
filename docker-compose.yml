@@ -1,7 +1,7 @@
 version: '3'
 services:
   ghe-helper:
-    image: ppouliot/ghe-helper:latest
+    image: ppouliot/ghe-helper
     tty: true
     build: .
     environment:
