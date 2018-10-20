@@ -7,8 +7,7 @@ ENV GHE_VERSION 0.0.6
 USER root
 ENV HOME /root
 RUN \
-echo "http://dl-6.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-apk add -U \
+    apk add --no-cache  \
     git wget curl rsync openssh \
     bash openssh-server vim \
     expect screen byobu \
@@ -19,7 +18,7 @@ apk add -U \
     openjdk8-jre libbz2 sqlite-dev procps zlib-dev \
     ruby-irb ruby-rake ruby-io-console \
     ruby-bigdecimal ruby-json ruby-bundler \
-    libstdc++ tzdata bash ca-certificates hub \
+    libstdc++ tzdata bash ca-certificates \
     linux-headers icu-dev libxml2-dev libxslt-dev \
     &&  echo 'gem: --no-document' > /etc/gemrc 
 
