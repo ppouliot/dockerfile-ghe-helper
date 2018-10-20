@@ -7,7 +7,8 @@ ENV GHE_VERSION 0.0.6
 USER root
 ENV HOME /root
 RUN \
-apk add --no-cache \
+echo "http://dl-6.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
+apk add -U \
     git wget curl rsync openssh \
     bash openssh-server vim \
     expect screen byobu \
