@@ -18,7 +18,7 @@ apk add --no-cache \
     openjdk8-jre libbz2 sqlite-dev procps zlib-dev \
     ruby-irb ruby-rake ruby-io-console \
     ruby-bigdecimal ruby-json ruby-bundler \
-    libstdc++ tzdata bash ca-certificates \
+    libstdc++ tzdata bash ca-certificates hub \
     linux-headers icu-dev libxml2-dev libxslt-dev \
     &&  echo 'gem: --no-document' > /etc/gemrc 
 
@@ -26,7 +26,9 @@ RUN \
     ln -s `which python3` /usr/local/bin/python \
     && ln -s `which pip3` /usr/local/bin/pip \
     && pip3 install --upgrade pip \
-    && pip3 install argparse setuptools future keyrings.alt Pygments stashy python-gitlab \
+    && pip3 install argparse setuptools future \
+    keyrings.alt Pygments stashy python-gitlab \
+    bitbucket-cli github2gitlab \
 # To install from a release
 #    && pip3 install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz 
 # To install directly from git
@@ -38,7 +40,8 @@ RUN echo "*** Installing Gems required for GH-Pages/jekyll and GH-Wiki/gollum **
 RUN gem install bundler github-pages jekyll \
     rouge jekyll-redirect-from kramdown rdiscount \
     sinatra gollum github-markdown redcarpet \
-    org-ruby rdoc rake bitbucket_rest_api
+    org-ruby rdoc rake bitbucket_rest_api \
+    gitlab
 
 RUN \
     echo "*** Enabling Byobu for Startup of GHE-Helper Services ***" \
