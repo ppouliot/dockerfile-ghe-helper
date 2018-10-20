@@ -132,3 +132,5 @@ The following resources were used in the creation of this platform.
   2. GHE
      1. https://github.com/ppouliot/ghe (Code used in this container)
      2. https://git.generalassemb.ly/ga-admin-utils/ghe (Origianl Source of the code used in this container)
+  3. Misc
+     1. https://moox.io/blog/keep-in-sync-git-repos-on-github-gitlab-bitbucket/
