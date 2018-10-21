@@ -27,7 +27,7 @@ RUN \
     && ln -s `which pip3` /usr/local/bin/pip \
     && pip3 install --upgrade pip \
     && pip3 install argparse setuptools future \
-    keyrings.alt Pygments stashy python-gitlab \
+    keyrings.alt Pygments stashy \
     bitbucket-cli github2gitlab \
 # To install from a release
 #    && pip3 install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz 
