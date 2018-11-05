@@ -7,7 +7,7 @@ ENV GHE_VERSION 0.0.6
 USER root
 ENV HOME /root
 RUN \
-    apk add --no-cache \
+    apk add --no-cache  \
     git wget curl rsync openssh \
     bash openssh-server vim \
     expect screen byobu \
@@ -26,7 +26,7 @@ RUN \
     ln -s `which python3` /usr/local/bin/python \
     && ln -s `which pip3` /usr/local/bin/pip \
     && pip3 install --upgrade pip \
-    && pip3 install argparse setuptools future keyrings.alt Pygments stashy python-gitlab bitbucket-cli github2gitlab \
+    && pip3 install argparse setuptools future keyrings.alt Pygments stashy bitbucket-cli github2gitlab \
 # To install from a release
 #    && pip3 install https://git.generalassemb.ly/ga-admin-utils/ghe/releases/download/${GHE_VERSION}/ghe-${GHE_VERSION}.tar.gz 
 # To install directly from git
@@ -34,9 +34,12 @@ RUN \
 # Installing downstream with some bug fixes.
     && pip3 install git+https://github.com/ppouliot/ghe.git
 
-RUN \
-    echo "*** Installing Gems required for GH-Pages/jekyll and GH-Wiki/gollum ***"  \
-    && gem install bundler github-pages jekyll rouge jekyll-redirect-from kramdown rdiscount sinatra gollum github-markdown redcarpet org-ruby rdoc rake bitbucket_rest_api gitlab
+RUN echo "*** Installing Gems required for GH-Pages/jekyll and GH-Wiki/gollum ***" 
+RUN gem install bundler github-pages jekyll \
+    rouge jekyll-redirect-from kramdown rdiscount \
+    sinatra gollum github-markdown redcarpet \
+    org-ruby rdoc rake bitbucket_rest_api \
+    gitlab
 
 RUN \
     echo "*** Enabling Byobu for Startup of GHE-Helper Services ***" \

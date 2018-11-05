@@ -16,7 +16,7 @@ else
   echo "gem 'github-pages', group: :jekyll_plugins" >> Gemfile
   git init .
   cd $HOME && bundle install
-  cd $HOME && bundle exec jekyll _3.3.0_ new pages
+  cd $HOME && bundle exec jekyll _3.8.5_ new pages
   cd $HOME/pages && bundle exec jekyll build
   cd $HOME/pages && bundle exec jekyll serve --watch --incremental --host=0.0.0.0
 fi
