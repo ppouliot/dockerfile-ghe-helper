@@ -1,5 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
+JEKYLL_LOGFILE=$HOME/jekyll_startup.log
+exec >> $JEKYLL_LOGFILE 2>&1
 if [ -e $HOME/pages/index.html ]; then 
   echo "Pages(index.html) Found"
   echo "starting jekyll"

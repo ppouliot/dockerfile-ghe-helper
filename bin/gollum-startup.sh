@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -x
+LOGFILE=$HOME/gollum_startup.log
+exec >> $LOGFILE 2>&1
+
 if [ -e $HOME/wiki/Home.md ]; then 
   echo "Wiki(Home.md) Found"
   echo "starting gollum"
