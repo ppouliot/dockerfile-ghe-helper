@@ -14,12 +14,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '30'))
     }
     stages {
-        stage ('Use the Puppet Development Kit Validation to Check for Linting Errors') {
-            steps {
-                sh 'pdk validate'
-            }
-        }
-        stage ('Checkout and build puppet-ipam in Docker to validate code as well as changes across OSes.') {
+        stage ('Checkout and build dockerfile-ghe-helper.') {
             when {
               expression {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
