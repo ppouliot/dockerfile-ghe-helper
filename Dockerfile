@@ -36,9 +36,9 @@ RUN \
 
 RUN \
     echo "*** Installing Gems required for GH-Pages/jekyll and GH-Wiki/gollum ***"  \
-    && gem install bundler github-pages html-proofer jekyll jekyll-reload jekyll-mentions jekyll-coffeescript jekyll-sas-converter \
-    jekyll-commonmark jekyll-paginate jekyll-compose jekyll-assets Redcloth jemogi jekyll-redirect-from kramdown rdiscount sinatra \
-    gollum github-markdown redcarpet org-ruby rdoc rake bitbucket_rest_api webrick
+    && gem install bundler github-pages html-proofer jekyll jekyll-reload jekyll-mentions jekyll-coffeescript jekyll-sass-converter \
+    jekyll-commonmark jekyll-paginate jekyll-compose jekyll-assets RedCloth jemoji jekyll-redirect-from kramdown rdiscount sinatra \
+    gollum github-markdown redcarpet org-ruby rdoc rake bitbucket_rest_api webrick sassc
 
 RUN \
     echo "*** Enabling Byobu for Startup of GHE-Helper Services ***" \
